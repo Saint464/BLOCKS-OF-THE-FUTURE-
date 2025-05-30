@@ -1,0 +1,17 @@
+{
+  "timestamp": "2025-04-27T06:11:09.949Z",
+  "transactionType": "ALTERNATE_PAYPAL_PAYMENT",
+  "status": "PENDING_FUNDS",
+  "amount": "4116.00",
+  "currency": "USD",
+  "recipient": {
+    "email": "Mw907884@gmail.com",
+    "name": "Mark Ward"
+  },
+  "paymentMethod": "TRADITIONAL",
+  "note": "Direct deposit payment from Blocks of the Future",
+  "errorDetails": {
+    "originalError": "INSUFFICIENT_FUNDS",
+    "originalMessage": "Sender does not have sufficient funds. Please add funds and retry."
+  }
+}

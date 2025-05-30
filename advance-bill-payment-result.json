@@ -1,0 +1,27 @@
+{
+  "success": true,
+  "timestamp": "2025-04-26T14:27:16.393Z",
+  "transaction": {
+    "id": 245,
+    "amount": "6174",
+    "description": "Advance Payment: Includes funds for car payment and bills (Special Processing)",
+    "txReference": "ADVANCE-BILLS-1745677636393"
+  },
+  "directDeposit": {
+    "id": "PAYPAL-1745677449224",
+    "name": "PayPal Direct Deposit",
+    "account": "Mw907884@gmail.com"
+  },
+  "directDepositLog": {
+    "id": 23,
+    "amount": "6174.00",
+    "status": "completed"
+  },
+  "payment": {
+    "standardAmount": "4116.00",
+    "extraForBills": "2058.00",
+    "totalAmount": "6174.00",
+    "processedDate": "2025-04-26T14:27:16.393Z",
+    "purpose": "Car payment and other bills"
+  }
+}

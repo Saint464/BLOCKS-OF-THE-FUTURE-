@@ -1,0 +1,18 @@
+{
+  "status": "COMPLETE",
+  "transaction_id": "ach_transfer_1745507209388",
+  "transfer_date": "2025-04-24T15:06:49.388Z",
+  "details": {
+    "amount": "8232",
+    "recipient_email": "Mw907884@gmail.com",
+    "recipient_name": "Mark Ward",
+    "account_info": {
+      "routing_number": "031101279",
+      "account_number_last4": "0822"
+    },
+    "status": "processed",
+    "processing_time": "immediate",
+    "transfer_method": "ach_direct",
+    "notes": "Manual payment processing via ACH"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "success": true,
+  "timestamp": "2025-04-26T14:25:57.454Z",
+  "transaction": {
+    "id": 244,
+    "amount": "4116",
+    "description": "Back Payment: Weekly Maintenance Pay (Gross) at $98/hr - 2025-04-21 (Retroactive)",
+    "txReference": "BACK-PAY-2025-04-21-1745677557454"
+  },
+  "directDeposit": {
+    "id": "PAYPAL-1745677449224",
+    "name": "PayPal Direct Deposit",
+    "account": "Mw907884@gmail.com"
+  },
+  "directDepositLog": {
+    "id": 22,
+    "amount": "4116.00",
+    "status": "completed"
+  },
+  "payment": {
+    "originalDate": "2025-04-21",
+    "processedDate": "2025-04-26T14:25:57.454Z",
+    "amount": "4116.00"
+  }
+}
