@@ -1,0 +1,10 @@
+name = "Guaranteed Server"
+workspace = {}
+entrypoint = "guaranteed-server.js"
+hidden = []
+run = "node guaranteed-server.js"
+onBoot = "node guaranteed-server.js"
+
+[nix]
+channel = "stable-24_05"
+packages = ["jq", "lsof"]
