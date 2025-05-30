@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blocks of the Future - Banking Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="header-content">
+                <div class="header-left">
+                    <div class="logo">
+                        <i class="fas fa-cube"></i>
+                        <h1>Blocks of the Future</h1>
+                    </div>
+                    <div class="platform-status">
+                        <span class="status-indicator" id="platformStatus">
+                            <i class="fas fa-circle"></i>
+                            <span>Platform Status</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="user-info">
+                        <span class="banking-charter">FDIC-59837 | NY-DFS-BL-2025-34891</span>
+                        <div class="last-updated" id="lastUpdated">
+                            <i class="fas fa-clock"></i>
+                            <span>Loading...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Dashboard Grid -->
+        <main class="dashboard-main">
+            <!-- Platform Overview Cards -->
+            <section class="overview-cards">
+                <div class="status-card" id="usersCard">
+                    <div class="card-header">
+                        <i class="fas fa-users"></i>
+                        <h3>Verified Users</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="metric-value" id="totalUsers">Loading...</div>
+                        <div class="metric-label">Global Users</div>
+                    </div>
+                </div>
+
+                <div class="status-card" id="transactionCard">
+                    <div class="card-header">
+                        <i class="fas fa-exchange-alt"></i>
+                        <h3>Transaction Volume</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="metric-value" id="transactionVolume">Loading...</div>
+                        <div class="metric-label">Global Volume</div>
+                    </div>
+                </div>
+
+                <div class="status-card" id="nodesCard">
+                    <div class="card-header">
+                        <i class="fas fa-network-wired"></i>
+                        <h3>Blockchain Nodes</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="metric-value" id="activeNodes">Loading...</div>
+                        <div class="metric-label">Active Worldwide</div>
+                    </div>
+                </div>
+
+                <div class="status-card" id="complianceCard">
+                    <div class="card-header">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Compliance Status</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="metric-value" id="complianceScore">Loading...</div>
+                        <div class="metric-label">Overall Score</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Charts Section -->
+            <section class="charts-section">
+                <div class="chart-container">
+                    <div class="chart-header">
+                        <h3>Platform Performance Metrics</h3>
+                        <div class="chart-controls">
+                            <button class="chart-control active" data-timeframe="24h">24H</button>
+                            <button class="chart-control" data-timeframe="7d">7D</button>
+                            <button class="chart-control" data-timeframe="30d">30D</button>
+                        </div>
+                    </div>
+                    <canvas id="metricsChart"></canvas>
+                </div>
+            </section>
+
+            <!-- System Status Grid -->
+            <section class="system-status-grid">
+                <!-- Integration Status -->
+                <div class="status-panel" id="integrationPanel">
+                    <div class="panel-header">
+                        <h3><i class="fas fa-plug"></i> Integration Status</h3>
+                        <div class="status-summary" id="integrationSummary">Loading...</div>
+                    </div>
+                    <div class="panel-content" id="integrationContent">
+                        <!-- Integration status will be populated here -->
+                    </div>
+                </div>
+
+                <!-- Security Monitor -->
+                <div class="status-panel" id="securityPanel">
+                    <div class="panel-header">
+                        <h3><i class="fas fa-lock"></i> Security Monitor</h3>
+                        <div class="security-level" id="securityLevel">Loading...</div>
+                    </div>
+                    <div class="panel-content" id="securityContent">
+                        <!-- Security status will be populated here -->
+                    </div>
+                </div>
+
+                <!-- Compliance Tracker -->
+                <div class="status-panel" id="compliancePanel">
+                    <div class="panel-header">
+                        <h3><i class="fas fa-gavel"></i> Regulatory Compliance</h3>
+                        <div class="compliance-summary" id="complianceSummary">Loading...</div>
+                    </div>
+                    <div class="panel-content" id="complianceContent">
+                        <!-- Compliance items will be populated here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recommendations Section -->
+            <section class="recommendations-section">
+                <div class="recommendations-panel">
+                    <div class="panel-header">
+                        <h3><i class="fas fa-lightbulb"></i> Enhancement Recommendations</h3>
+                        <div class="recommendations-count" id="recommendationsCount">Loading...</div>
+                    </div>
+                    <div class="panel-content" id="recommendationsContent">
+                        <!-- Recommendations will be populated here -->
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Loading Overlay -->
+        <div class="loading-overlay" id="loadingOverlay">
+            <div class="loading-spinner">
+                <i class="fas fa-spinner fa-spin"></i>
+                <p>Loading platform data...</p>
+            </div>
+        </div>
+
+        <!-- Error Modal -->
+        <div class="modal-overlay" id="errorModal" style="display: none;">
+            <div class="modal">
+                <div class="modal-header">
+                    <h3><i class="fas fa-exclamation-triangle"></i> System Alert</h3>
+                    <button class="modal-close" onclick="closeErrorModal()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-content" id="errorContent">
+                    <!-- Error details will be populated here -->
+                </div>
+                <div class="modal-actions">
+                    <button class="btn btn-primary" onclick="closeErrorModal()">Acknowledge</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Redirect to Production Interface -->
+    <script>
+        window.location.href = '/index-production.html';
+    </script>
+</body>
+</html>

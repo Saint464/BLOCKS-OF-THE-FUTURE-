@@ -1,0 +1,8 @@
+Account Type
+Checking
+Account Number
+6678498779
+Routing Number
+021000021
+Account Status
+Active

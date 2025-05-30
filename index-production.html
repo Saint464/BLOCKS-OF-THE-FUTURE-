@@ -1,0 +1,1529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blocks of the Future - Banking Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 280px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-right: 1px solid rgba(255, 255, 255, 0.2);
+            overflow-y: auto;
+        }
+
+        .header {
+            padding: 25px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+
+        .level-tabs {
+            display: flex;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .level-tab {
+            flex: 1;
+            padding: 15px 10px;
+            text-align: center;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-size: 14px;
+            color: #6c757d;
+            transition: all 0.3s ease;
+        }
+
+        .level-tab.active {
+            background: white;
+            color: #3498db;
+            font-weight: bold;
+        }
+
+        .navigation {
+            padding: 20px 0;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #2c3e50;
+            border-left: 3px solid transparent;
+        }
+
+        .nav-item:hover {
+            background: rgba(52, 152, 219, 0.1);
+            border-left-color: #3498db;
+        }
+
+        .nav-item.active {
+            background: rgba(52, 152, 219, 0.15);
+            border-left-color: #3498db;
+            color: #3498db;
+            font-weight: bold;
+        }
+
+        .nav-item i {
+            width: 20px;
+            margin-right: 15px;
+            font-size: 16px;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 30px;
+            overflow-y: auto;
+        }
+
+        .content-header {
+            margin-bottom: 30px;
+        }
+
+        .content-header h2 {
+            color: white;
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .content-header p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 16px;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .dashboard-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .dashboard-card.featured {
+            border: 2px solid #f39c12;
+            background: linear-gradient(135deg, #fff 0%, #fef9e7 100%);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .card-header i {
+            font-size: 24px;
+            color: #3498db;
+            margin-right: 15px;
+        }
+
+        .card-header h3 {
+            color: #2c3e50;
+            font-size: 18px;
+        }
+
+        .card-value {
+            font-size: 32px;
+            font-weight: bold;
+            color: #27ae60;
+            margin-bottom: 8px;
+        }
+
+        .card-label {
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+
+        .card-subtitle {
+            color: #e67e22;
+            font-size: 14px;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 50px;
+            color: white;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="header">
+                <div class="logo">🏦 Blocks of the Future</div>
+                <div class="subtitle">FDIC-59837 | NY-DFS-BL-2025-34891</div>
+            </div>
+            
+            <div class="level-tabs">
+                <button class="level-tab active" data-level="admin">Admin</button>
+                <button class="level-tab" data-level="mining">Mining</button>
+                <button class="level-tab" data-level="customer">Customer</button>
+            </div>
+            
+            <div class="navigation admin-nav">
+                <div class="nav-item active" data-section="banking">
+                    <i class="fas fa-university"></i>
+                    <span>Banking</span>
+                </div>
+                <div class="nav-item" data-section="investments">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Investments</span>
+                </div>
+                <div class="nav-item" data-section="stock-market">
+                    <i class="fas fa-chart-area"></i>
+                    <span>Stock Market</span>
+                </div>
+                <div class="nav-item" data-section="crypto-market">
+                    <i class="fas fa-coins"></i>
+                    <span>Crypto Market</span>
+                </div>
+                <div class="nav-item" data-section="real-estate">
+                    <i class="fas fa-home"></i>
+                    <span>Real Estate</span>
+                </div>
+                <div class="nav-item" data-section="llc-creation">
+                    <i class="fas fa-building"></i>
+                    <span>LLC Services</span>
+                </div>
+                <div class="nav-item" data-section="business-plans">
+                    <i class="fas fa-file-contract"></i>
+                    <span>Business Plans</span>
+                </div>
+                <div class="nav-item" data-section="car-marketplace">
+                    <i class="fas fa-car"></i>
+                    <span>Vehicle Market</span>
+                </div>
+                <div class="nav-item" data-section="services">
+                    <i class="fas fa-concierge-bell"></i>
+                    <span>Services</span>
+                </div>
+                <div class="nav-item" data-section="ai-teaching">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>AI Learning</span>
+                </div>
+                <div class="nav-item" data-section="customer-feedback">
+                    <i class="fas fa-comments"></i>
+                    <span>Feedback</span>
+                </div>
+                <div class="nav-item" data-section="mining-maintenance">
+                    <i class="fas fa-pickaxe"></i>
+                    <span>Mining Maintenance</span>
+                </div>
+                <div class="nav-item" data-section="security-maintenance">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Security Maintenance</span>
+                </div>
+                <div class="nav-item" data-section="blockchain-maintenance">
+                    <i class="fas fa-link"></i>
+                    <span>Blockchain Maintenance</span>
+                </div>
+                <div class="nav-item" data-section="smart-contract-maintenance">
+                    <i class="fas fa-file-contract"></i>
+                    <span>Smart Contract Maintenance</span>
+                </div>
+                <div class="nav-item" data-section="smart-contract-deployer">
+                    <i class="fas fa-rocket"></i>
+                    <span>Smart Contract Deployer</span>
+                </div>
+                <div class="nav-item" data-section="ai-trading">
+                    <i class="fas fa-robot"></i>
+                    <span>AI Trading (Admin Only)</span>
+                </div>
+                <div class="nav-item" data-section="ai-hr">
+                    <i class="fas fa-users-cog"></i>
+                    <span>AI HR (Admin Only)</span>
+                </div>
+                <div class="nav-item" data-section="ai-trading-maintenance">
+                    <i class="fas fa-robot"></i>
+                    <span>AI Trading Maintenance</span>
+                </div>
+                <div class="nav-item" data-section="ai-maintenance">
+                    <i class="fas fa-brain"></i>
+                    <span>AI System Maintenance</span>
+                </div>
+                <div class="nav-item" data-section="system-logs">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span>System Logs</span>
+                </div>
+                <div class="nav-item" data-section="payroll-maintenance">
+                    <i class="fas fa-money-check"></i>
+                    <span>Payroll Maintenance</span>
+                </div>
+            </div>
+            
+            <div class="navigation mining-nav hidden">
+                <div class="nav-item" data-section="mining-overview">
+                    <i class="fas fa-cubes"></i>
+                    <span>Mining Overview</span>
+                </div>
+                <div class="nav-item" data-section="my-profile">
+                    <i class="fas fa-user"></i>
+                    <span>My Profile</span>
+                </div>
+                <div class="nav-item" data-section="mine-status">
+                    <i class="fas fa-server"></i>
+                    <span>Mine Status</span>
+                </div>
+                <div class="nav-item" data-section="payroll">
+                    <i class="fab fa-paypal"></i>
+                    <span>Payroll</span>
+                </div>
+            </div>
+            
+            <div class="navigation customer-nav hidden">
+                <div class="nav-item" data-section="account-overview">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Account Overview</span>
+                </div>
+                <div class="nav-item" data-section="transfers">
+                    <i class="fas fa-exchange-alt"></i>
+                    <span>Transfers</span>
+                </div>
+                <div class="nav-item" data-section="payments">
+                    <i class="fas fa-credit-card"></i>
+                    <span>Payments</span>
+                </div>
+                <div class="nav-item" data-section="investments-customer">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Investments</span>
+                </div>
+                <div class="nav-item" data-section="crypto-wallet">
+                    <i class="fas fa-wallet"></i>
+                    <span>Crypto Wallet</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <div class="content-header">
+                <h2>Banking Dashboard</h2>
+                <p>Your complete banking overview</p>
+            </div>
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <i class="fas fa-university"></i>
+                        <h3>Primary Checking</h3>
+                    </div>
+                    <div class="card-value">$360,000</div>
+                    <div class="card-label">Available Balance</div>
+                </div>
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <i class="fas fa-piggy-bank"></i>
+                        <h3>Savings Account</h3>
+                    </div>
+                    <div class="card-value">$150,000</div>
+                    <div class="card-label">High-Yield Savings</div>
+                </div>
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <i class="fas fa-chart-pie"></i>
+                        <h3>401(k) Retirement</h3>
+                    </div>
+                    <div class="card-value">$350,000</div>
+                    <div class="card-label">Pre-Tax Contributions</div>
+                </div>
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <i class="fas fa-seedling"></i>
+                        <h3>Roth IRA</h3>
+                    </div>
+                    <div class="card-value">$125,000</div>
+                    <div class="card-label">Tax-Free Growth</div>
+                </div>
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <i class="fas fa-briefcase"></i>
+                        <h3>Business Account</h3>
+                    </div>
+                    <div class="card-value">$125,000</div>
+                    <div class="card-label">Operating Capital</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        class BlocksPlatform {
+            constructor() {
+                this.currentLevel = 'admin';
+                this.currentSection = 'banking';
+                this.init();
+            }
+            
+            init() {
+                this.setupEventListeners();
+            }
+            
+            setupEventListeners() {
+                // Level tab switching
+                document.querySelectorAll('.level-tab').forEach(tab => {
+                    tab.addEventListener('click', (e) => {
+                        const level = e.target.dataset.level;
+                        this.switchLevel(level);
+                    });
+                });
+                
+                // Navigation item clicking
+                document.querySelectorAll('.nav-item').forEach(item => {
+                    item.addEventListener('click', (e) => {
+                        const section = e.target.closest('.nav-item').dataset.section;
+                        this.switchSection(section);
+                    });
+                });
+            }
+            
+            switchLevel(level) {
+                this.currentLevel = level;
+                
+                // Update active tab
+                document.querySelectorAll('.level-tab').forEach(tab => {
+                    tab.classList.remove('active');
+                });
+                document.querySelector(`[data-level="${level}"]`).classList.add('active');
+                
+                // Show/hide navigation menus
+                document.querySelectorAll('.navigation').forEach(nav => {
+                    nav.classList.add('hidden');
+                });
+                document.querySelector(`.${level}-nav`).classList.remove('hidden');
+                
+                // Set default section for each level
+                const defaultSections = {
+                    'admin': 'banking',
+                    'mining': 'mining-overview',
+                    'customer': 'account-overview'
+                };
+                
+                this.switchSection(defaultSections[level]);
+            }
+            
+            switchSection(section) {
+                this.currentSection = section;
+                
+                // Update navigation active state  
+                const currentNav = document.querySelector(`.${this.currentLevel}-nav`);
+                currentNav.querySelectorAll('.nav-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                const targetNavItem = currentNav.querySelector(`[data-section="${section}"]`);
+                if (targetNavItem) {
+                    targetNavItem.classList.add('active');
+                }
+                
+                // Load content
+                this.loadContent(section);
+            }
+            
+            loadContent(section) {
+                const mainContent = document.querySelector('.main-content');
+                if (!mainContent) return;
+                
+                switch(section) {
+                    case 'banking':
+                        mainContent.innerHTML = `
+                            <div class="content-header">
+                                <h2>Banking Dashboard</h2>
+                                <p>Your complete banking overview</p>
+                            </div>
+                            <div class="dashboard-grid">
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-university"></i>
+                                        <h3>Primary Checking</h3>
+                                    </div>
+                                    <div class="card-value">$360,000</div>
+                                    <div class="card-label">Available Balance</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-piggy-bank"></i>
+                                        <h3>Savings Account</h3>
+                                    </div>
+                                    <div class="card-value">$150,000</div>
+                                    <div class="card-label">High-Yield Savings</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-chart-pie"></i>
+                                        <h3>401(k) Retirement</h3>
+                                    </div>
+                                    <div class="card-value">$350,000</div>
+                                    <div class="card-label">Pre-Tax Contributions</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-seedling"></i>
+                                        <h3>Roth IRA</h3>
+                                    </div>
+                                    <div class="card-value">$125,000</div>
+                                    <div class="card-label">Tax-Free Growth</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-briefcase"></i>
+                                        <h3>Business Account</h3>
+                                    </div>
+                                    <div class="card-value">$125,000</div>
+                                    <div class="card-label">Operating Capital</div>
+                                </div>
+                            </div>
+                        `;
+                        break;
+                        
+                    case 'investments':
+                        mainContent.innerHTML = `
+                            <div class="content-header">
+                                <h2>Investment Portfolio</h2>
+                                <p>Your complete investment portfolio overview</p>
+                            </div>
+                            <div class="dashboard-grid">
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-chart-line"></i>
+                                        <h3>Total Portfolio Value</h3>
+                                    </div>
+                                    <div class="card-value">$4,585,000</div>
+                                    <div class="card-label">All Assets Combined</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-coins"></i>
+                                        <h3>Cryptocurrency</h3>
+                                    </div>
+                                    <div class="card-value">$1,250,000</div>
+                                    <div class="card-label">BANK Tokens + FUTR Coin</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-chart-area"></i>
+                                        <h3>Stock Portfolio</h3>
+                                    </div>
+                                    <div class="card-value">$450,000</div>
+                                    <div class="card-label">Stocks, Bonds, ETFs</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-home"></i>
+                                        <h3>Real Estate</h3>
+                                    </div>
+                                    <div class="card-value">$1,500,000</div>
+                                    <div class="card-label">Primary + Investment Properties</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-car"></i>
+                                        <h3>Vehicle Assets</h3>
+                                    </div>
+                                    <div class="card-value">$35,000</div>
+                                    <div class="card-label">2018 Jeep Wrangler</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-building"></i>
+                                        <h3>Business Equity</h3>
+                                    </div>
+                                    <div class="card-value">$9,281.78</div>
+                                    <div class="card-label">Blocks of the Future LLC</div>
+                                </div>
+                            </div>
+                        `;
+                        break;
+                        
+                    case 'crypto-market':
+                        mainContent.innerHTML = `
+                            <div class="content-header">
+                                <h2>Cryptocurrency Exchange</h2>
+                                <p>Your crypto portfolio and market trading</p>
+                            </div>
+                            <div class="dashboard-grid">
+                                <div class="dashboard-card featured">
+                                    <div class="card-header">
+                                        <i class="fas fa-coins"></i>
+                                        <h3>BANK Token Holdings</h3>
+                                    </div>
+                                    <div class="card-value">333,333 BANK</div>
+                                    <div class="card-label">Current Value: $1,250,000 @ $3.75/token</div>
+                                    <div class="card-subtitle">Already actively trading in market</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fab fa-bitcoin"></i>
+                                        <h3>Bitcoin Market</h3>
+                                    </div>
+                                    <div class="card-value">Live Trading</div>
+                                    <div class="card-label">Real-time market data</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fab fa-ethereum"></i>
+                                        <h3>Ethereum Market</h3>
+                                    </div>
+                                    <div class="card-value">Live Trading</div>
+                                    <div class="card-label">Real-time market data</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-rocket"></i>
+                                        <h3>FUTR Coin</h3>
+                                    </div>
+                                    <div class="card-value">Development</div>
+                                    <div class="card-label">Future cryptocurrency launch</div>
+                                </div>
+                            </div>
+                        `;
+                        break;
+                        
+                    case 'payroll':
+                        mainContent.innerHTML = `
+                            <div class="content-header">
+                                <h2>Payroll Management</h2>
+                                <p>PayPal automated payroll system</p>
+                            </div>
+                            <div class="dashboard-grid">
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fab fa-paypal"></i>
+                                        <h3>Next Payroll</h3>
+                                    </div>
+                                    <div class="card-value">Friday 9:00 AM</div>
+                                    <div class="card-label">Automated PayPal Processing</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-user-tie"></i>
+                                        <h3>Admin Salary</h3>
+                                    </div>
+                                    <div class="card-value">$5,000</div>
+                                    <div class="card-label">Weekly Payment</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-users"></i>
+                                        <h3>Miner Salary</h3>
+                                    </div>
+                                    <div class="card-value">$3,500</div>
+                                    <div class="card-label">Per Miner Weekly</div>
+                                </div>
+                            </div>
+                        `;
+                        break;
+                        
+                    case 'ai-trading':
+                        mainContent.innerHTML = `
+                            <div class="content-header">
+                                <h2>AI Trading System</h2>
+                                <p>Automated trading operations</p>
+                            </div>
+                            <div class="dashboard-grid">
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-chart-line"></i>
+                                        <h3>Daily Profit</h3>
+                                    </div>
+                                    <div class="card-value">$2,400,000</div>
+                                    <div class="card-label">AI Trading Revenue</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-dollar-sign"></i>
+                                        <h3>Operational Funds</h3>
+                                    </div>
+                                    <div class="card-value">$847,000,000</div>
+                                    <div class="card-label">Total Trading Capital</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-brain"></i>
+                                        <h3>AI Confidence</h3>
+                                    </div>
+                                    <div class="card-value">85.0%</div>
+                                    <div class="card-label">Market Analysis Accuracy</div>
+                                </div>
+                            </div>
+                        `;
+                        break;
+                        
+                    case 'stock-market':
+                        mainContent.innerHTML = `
+                            <div class="content-header">
+                                <h2>Stock Market Trading</h2>
+                                <p>Live stock market data and trading</p>
+                            </div>
+                            <div class="dashboard-grid">
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-chart-line"></i>
+                                        <h3>Portfolio Performance</h3>
+                                    </div>
+                                    <div class="card-value">+12.5%</div>
+                                    <div class="card-label">Year to Date Returns</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-dollar-sign"></i>
+                                        <h3>Trading Power</h3>
+                                    </div>
+                                    <div class="card-value">$450,000</div>
+                                    <div class="card-label">Available for Trading</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-trophy"></i>
+                                        <h3>Top Performer</h3>
+                                    </div>
+                                    <div class="card-value">AAPL</div>
+                                    <div class="card-label">+25% This Quarter</div>
+                                </div>
+                            </div>
+                        `;
+                        break;
+                        
+                    case 'real-estate':
+                        mainContent.innerHTML = `
+                            <div class="content-header">
+                                <h2>Real Estate Portfolio</h2>
+                                <p>Property investments and management</p>
+                            </div>
+                            <div class="dashboard-grid">
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-home"></i>
+                                        <h3>Primary Residence</h3>
+                                    </div>
+                                    <div class="card-value">$850,000</div>
+                                    <div class="card-label">Current Market Value</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-building"></i>
+                                        <h3>Investment Properties</h3>
+                                    </div>
+                                    <div class="card-value">$650,000</div>
+                                    <div class="card-label">Rental Property Portfolio</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-chart-area"></i>
+                                        <h3>Total Real Estate</h3>
+                                    </div>
+                                    <div class="card-value">$1,500,000</div>
+                                    <div class="card-label">Combined Property Value</div>
+                                </div>
+                            </div>
+                        `;
+                        break;
+                        
+                    case 'llc-creation':
+                        mainContent.innerHTML = `
+                            <div class="content-header">
+                                <h2>LLC Formation Services</h2>
+                                <p>Business entity creation and management</p>
+                            </div>
+                            <div class="dashboard-grid">
+                                <div class="dashboard-card featured">
+                                    <div class="card-header">
+                                        <i class="fas fa-building"></i>
+                                        <h3>Blocks of the Future LLC</h3>
+                                    </div>
+                                    <div class="card-value">Active</div>
+                                    <div class="card-label">Delaware Corporation</div>
+                                    <div class="card-subtitle">EIN: 88-1234567</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-file-alt"></i>
+                                        <h3>Business Documents</h3>
+                                    </div>
+                                    <div class="card-value">Complete</div>
+                                    <div class="card-label">Articles, Operating Agreement</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-shield-alt"></i>
+                                        <h3>Compliance Status</h3>
+                                    </div>
+                                    <div class="card-value">Current</div>
+                                    <div class="card-label">All Filings Up to Date</div>
+                                </div>
+                            </div>
+                        `;
+                        break;
+                        
+                    case 'car-marketplace':
+                        mainContent.innerHTML = `
+                            <div class="content-header">
+                                <h2>Vehicle Marketplace</h2>
+                                <p>Vehicle assets and trading platform</p>
+                            </div>
+                            <div class="dashboard-grid">
+                                <div class="dashboard-card featured">
+                                    <div class="card-header">
+                                        <i class="fas fa-car"></i>
+                                        <h3>2018 Jeep Wrangler</h3>
+                                    </div>
+                                    <div class="card-value">$35,000</div>
+                                    <div class="card-label">Current Market Value</div>
+                                    <div class="card-subtitle">VIN: 1C4HJXDG*******</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-chart-line"></i>
+                                        <h3>Vehicle Equity</h3>
+                                    </div>
+                                    <div class="card-value">100%</div>
+                                    <div class="card-label">Fully Owned</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-tools"></i>
+                                        <h3>Condition</h3>
+                                    </div>
+                                    <div class="card-value">Excellent</div>
+                                    <div class="card-label">Well Maintained</div>
+                                </div>
+                            </div>
+                        `;
+                        break;
+                        
+                    case 'ai-hr':
+                        mainContent.innerHTML = `
+                            <div class="content-header">
+                                <h2>AI Human Resources</h2>
+                                <p>Automated HR management system</p>
+                            </div>
+                            <div class="dashboard-grid">
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-user-tie"></i>
+                                        <h3>Total Employees</h3>
+                                    </div>
+                                    <div class="card-value">1</div>
+                                    <div class="card-label">Admin Only</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-dollar-sign"></i>
+                                        <h3>Admin Salary</h3>
+                                    </div>
+                                    <div class="card-value">$5,000</div>
+                                    <div class="card-label">Weekly via PayPal</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-robot"></i>
+                                        <h3>AI HR Status</h3>
+                                    </div>
+                                    <div class="card-value">Active</div>
+                                    <div class="card-label">Processing Applications</div>
+                                </div>
+                            </div>
+                        `;
+                        break;
+                        
+                    case 'mining-overview':
+                        mainContent.innerHTML = `
+                            <div class="content-header">
+                                <h2>Cryptocurrency Mining Operations</h2>
+                                <p>Your 14 crypto mining systems dashboard</p>
+                            </div>
+                            <div class="dashboard-grid">
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-microchip"></i>
+                                        <h3>Active Crypto Miners</h3>
+                                    </div>
+                                    <div class="card-value">14</div>
+                                    <div class="card-label">Bitcoin/Ethereum Mining Rigs</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-tools"></i>
+                                        <h3>Maintenance Payments</h3>
+                                    </div>
+                                    <div class="card-value">$7,211.54</div>
+                                    <div class="card-label">Weekly ($375K annually)</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fab fa-paypal"></i>
+                                        <h3>Payment Destination</h3>
+                                    </div>
+                                    <div class="card-value">PayPal</div>
+                                    <div class="card-label">Mw907884@gmail.com</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        <h3>Next Payment</h3>
+                                    </div>
+                                    <div class="card-value">Friday</div>
+                                    <div class="card-label">9:00 AM EST Direct Deposit</div>
+                                </div>
+                            </div>
+                        `;
+                        break;
+                        
+                    case 'account-overview':
+                        mainContent.innerHTML = `
+                            <div class="content-header">
+                                <h2>Account Overview</h2>
+                                <p>Your personal banking dashboard</p>
+                            </div>
+                            <div class="dashboard-grid">
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-university"></i>
+                                        <h3>Available Balance</h3>
+                                    </div>
+                                    <div class="card-value">$250</div>
+                                    <div class="card-label">From Initial $500 Deposit</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-coins"></i>
+                                        <h3>BANK Tokens</h3>
+                                    </div>
+                                    <div class="card-value">0</div>
+                                    <div class="card-label">Ready to Purchase</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-shield-alt"></i>
+                                        <h3>Account Status</h3>
+                                    </div>
+                                    <div class="card-value">Active</div>
+                                    <div class="card-label">FDIC Insured</div>
+                                </div>
+                            </div>
+                        `;
+                        break;
+                        
+                    case 'transfers':
+                        mainContent.innerHTML = `
+                            <div class="content-header">
+                                <h2>Money Transfers</h2>
+                                <p>Send and receive funds securely</p>
+                            </div>
+                            <div class="dashboard-grid">
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-paper-plane"></i>
+                                        <h3>Send Money</h3>
+                                    </div>
+                                    <div class="card-value">Available</div>
+                                    <div class="card-label">Wire transfers, ACH, Zelle</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-inbox"></i>
+                                        <h3>Receive Money</h3>
+                                    </div>
+                                    <div class="card-value">Active</div>
+                                    <div class="card-label">Account: ********3587</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-history"></i>
+                                        <h3>Recent Transfers</h3>
+                                    </div>
+                                    <div class="card-value">1</div>
+                                    <div class="card-label">Initial deposit processed</div>
+                                </div>
+                            </div>
+                        `;
+                        break;
+                        
+                    case 'payments':
+                        mainContent.innerHTML = `
+                            <div class="content-header">
+                                <h2>Payment Center</h2>
+                                <p>Manage bills and payments</p>
+                            </div>
+                            <div class="dashboard-grid">
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-credit-card"></i>
+                                        <h3>Debit Card</h3>
+                                    </div>
+                                    <div class="card-value">Active</div>
+                                    <div class="card-label">****-****-****-3587</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-mobile-alt"></i>
+                                        <h3>Mobile Payments</h3>
+                                    </div>
+                                    <div class="card-value">Enabled</div>
+                                    <div class="card-label">Apple Pay, Google Pay</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-receipt"></i>
+                                        <h3>Bill Pay</h3>
+                                    </div>
+                                    <div class="card-value">Ready</div>
+                                    <div class="card-label">Schedule automatic payments</div>
+                                </div>
+                            </div>
+                        `;
+                        break;
+                        
+                    case 'investments-customer':
+                        mainContent.innerHTML = `
+                            <div class="content-header">
+                                <h2>Investment Portfolio</h2>
+                                <p>Your investment account</p>
+                            </div>
+                            <div class="dashboard-grid">
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-chart-line"></i>
+                                        <h3>Investment Balance</h3>
+                                    </div>
+                                    <div class="card-value">$0</div>
+                                    <div class="card-label">Ready to invest</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-seedling"></i>
+                                        <h3>Available Options</h3>
+                                    </div>
+                                    <div class="card-value">Stocks</div>
+                                    <div class="card-label">ETFs, Bonds, Mutual Funds</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-shield-alt"></i>
+                                        <h3>Account Type</h3>
+                                    </div>
+                                    <div class="card-value">Taxable</div>
+                                    <div class="card-label">Standard brokerage account</div>
+                                </div>
+                            </div>
+                        `;
+                        break;
+                        
+                    case 'crypto-wallet':
+                        mainContent.innerHTML = `
+                            <div class="content-header">
+                                <h2>Cryptocurrency Wallet</h2>
+                                <p>Buy, sell, and store digital currencies</p>
+                            </div>
+                            <div class="dashboard-grid">
+                                <div class="dashboard-card featured">
+                                    <div class="card-header">
+                                        <i class="fas fa-coins"></i>
+                                        <h3>BANK Tokens</h3>
+                                    </div>
+                                    <div class="card-value">0 BANK</div>
+                                    <div class="card-label">Current price: $3.75</div>
+                                    <div class="card-subtitle">Available for purchase</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fab fa-bitcoin"></i>
+                                        <h3>Bitcoin</h3>
+                                    </div>
+                                    <div class="card-value">$0</div>
+                                    <div class="card-label">BTC wallet balance</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fab fa-ethereum"></i>
+                                        <h3>Ethereum</h3>
+                                    </div>
+                                    <div class="card-value">$0</div>
+                                    <div class="card-label">ETH wallet balance</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-wallet"></i>
+                                        <h3>Total Crypto Value</h3>
+                                    </div>
+                                    <div class="card-value">$0</div>
+                                    <div class="card-label">All digital assets</div>
+                                </div>
+                            </div>
+                        `;
+                        break;
+                        
+                    case 'mining-maintenance':
+                        mainContent.innerHTML = `
+                            <div class="content-header">
+                                <h2>Crypto Mining Maintenance</h2>
+                                <p>Manage your 14 cryptocurrency mining operations</p>
+                            </div>
+                            <div class="dashboard-grid">
+                                <div class="dashboard-card featured">
+                                    <div class="card-header">
+                                        <i class="fas fa-microchip"></i>
+                                        <h3>Mining Infrastructure</h3>
+                                    </div>
+                                    <div class="card-value">14 Rigs</div>
+                                    <div class="card-label">Bitcoin & Ethereum Miners</div>
+                                    <div class="card-subtitle">All systems operational</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-dollar-sign"></i>
+                                        <h3>Annual Maintenance</h3>
+                                    </div>
+                                    <div class="card-value">$375,000</div>
+                                    <div class="card-label">Total yearly cost</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-calendar-week"></i>
+                                        <h3>Weekly Payment</h3>
+                                    </div>
+                                    <div class="card-value">$7,211.54</div>
+                                    <div class="card-label">Automated direct deposit</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fab fa-paypal"></i>
+                                        <h3>PayPal Account</h3>
+                                    </div>
+                                    <div class="card-value">Connected</div>
+                                    <div class="card-label">Mw907884@gmail.com</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-thermometer-half"></i>
+                                        <h3>System Status</h3>
+                                    </div>
+                                    <div class="card-value">Optimal</div>
+                                    <div class="card-label">Temperature & Performance</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-clock"></i>
+                                        <h3>Next Maintenance</h3>
+                                    </div>
+                                    <div class="card-value">Friday 9:00 AM</div>
+                                    <div class="card-label">Scheduled payment</div>
+                                </div>
+                            </div>
+                        `;
+                        break;
+                        
+                    case 'security-maintenance':
+                        mainContent.innerHTML = `
+                            <div class="content-header">
+                                <h2>Security Maintenance</h2>
+                                <p>Platform security monitoring and maintenance - $175/hour</p>
+                            </div>
+                            <div class="dashboard-grid">
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-shield-virus"></i>
+                                        <h3>Threat Detection</h3>
+                                    </div>
+                                    <div class="card-value">Active</div>
+                                    <div class="card-label">24/7 monitoring enabled</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-lock"></i>
+                                        <h3>Encryption Status</h3>
+                                    </div>
+                                    <div class="card-value">Military Grade</div>
+                                    <div class="card-label">AES-256 encryption active</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-user-shield"></i>
+                                        <h3>Access Control</h3>
+                                    </div>
+                                    <div class="card-value">Secured</div>
+                                    <div class="card-label">Multi-factor authentication</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-clock"></i>
+                                        <h3>Maintenance Hours</h3>
+                                    </div>
+                                    <div class="card-value">$175/hour</div>
+                                    <div class="card-label">Security administration</div>
+                                </div>
+                            </div>
+                        `;
+                        break;
+                        
+                    case 'blockchain-maintenance':
+                        mainContent.innerHTML = `
+                            <div class="content-header">
+                                <h2>Blockchain Maintenance</h2>
+                                <p>Blockchain infrastructure management - $175/hour</p>
+                            </div>
+                            <div class="dashboard-grid">
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-cubes"></i>
+                                        <h3>Network Status</h3>
+                                    </div>
+                                    <div class="card-value">Healthy</div>
+                                    <div class="card-label">All nodes operational</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-link"></i>
+                                        <h3>Block Height</h3>
+                                    </div>
+                                    <div class="card-value">2,847,921</div>
+                                    <div class="card-label">Latest block processed</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-tachometer-alt"></i>
+                                        <h3>Hash Rate</h3>
+                                    </div>
+                                    <div class="card-value">15.8 TH/s</div>
+                                    <div class="card-label">Network processing power</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-dollar-sign"></i>
+                                        <h3>Maintenance Rate</h3>
+                                    </div>
+                                    <div class="card-value">$175/hour</div>
+                                    <div class="card-label">Blockchain administration</div>
+                                </div>
+                            </div>
+                        `;
+                        break;
+                        
+                    case 'smart-contract-maintenance':
+                        mainContent.innerHTML = `
+                            <div class="content-header">
+                                <h2>Smart Contract Maintenance</h2>
+                                <p>Smart contract monitoring and updates - $175/hour</p>
+                            </div>
+                            <div class="dashboard-grid">
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-file-contract"></i>
+                                        <h3>Active Contracts</h3>
+                                    </div>
+                                    <div class="card-value">47</div>
+                                    <div class="card-label">Deployed and running</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-gas-pump"></i>
+                                        <h3>Gas Optimization</h3>
+                                    </div>
+                                    <div class="card-value">Optimized</div>
+                                    <div class="card-label">Efficient execution</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-bug"></i>
+                                        <h3>Security Audit</h3>
+                                    </div>
+                                    <div class="card-value">Clean</div>
+                                    <div class="card-label">No vulnerabilities detected</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-money-bill"></i>
+                                        <h3>Maintenance Rate</h3>
+                                    </div>
+                                    <div class="card-value">$175/hour</div>
+                                    <div class="card-label">Contract administration</div>
+                                </div>
+                            </div>
+                        `;
+                        break;
+                        
+                    case 'smart-contract-deployer':
+                        mainContent.innerHTML = `
+                            <div class="content-header">
+                                <h2>Smart Contract Deployer</h2>
+                                <p>Deploy and manage smart contracts - $175/hour</p>
+                            </div>
+                            <div class="dashboard-grid">
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-rocket"></i>
+                                        <h3>Deployment Ready</h3>
+                                    </div>
+                                    <div class="card-value">Available</div>
+                                    <div class="card-label">Testnet & Mainnet</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-code"></i>
+                                        <h3>Compiler Version</h3>
+                                    </div>
+                                    <div class="card-value">Solidity 0.8.19</div>
+                                    <div class="card-label">Latest stable version</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-coins"></i>
+                                        <h3>ETH Balance</h3>
+                                    </div>
+                                    <div class="card-value">15.7 ETH</div>
+                                    <div class="card-label">Deployment gas funds</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-clock"></i>
+                                        <h3>Service Rate</h3>
+                                    </div>
+                                    <div class="card-value">$175/hour</div>
+                                    <div class="card-label">Development & deployment</div>
+                                </div>
+                            </div>
+                        `;
+                        break;
+                        
+                    case 'ai-trading-maintenance':
+                        mainContent.innerHTML = `
+                            <div class="content-header">
+                                <h2>AI Trading System Maintenance</h2>
+                                <p>AI trading algorithm monitoring - $175/hour</p>
+                            </div>
+                            <div class="dashboard-grid">
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-chart-line"></i>
+                                        <h3>Algorithm Status</h3>
+                                    </div>
+                                    <div class="card-value">Optimized</div>
+                                    <div class="card-label">85% confidence active</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-dollar-sign"></i>
+                                        <h3>Daily Performance</h3>
+                                    </div>
+                                    <div class="card-value">$2.4M</div>
+                                    <div class="card-label">Trading revenue generated</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-database"></i>
+                                        <h3>Data Processing</h3>
+                                    </div>
+                                    <div class="card-value">Real-time</div>
+                                    <div class="card-label">Market data analysis</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-wrench"></i>
+                                        <h3>Maintenance Rate</h3>
+                                    </div>
+                                    <div class="card-value">$175/hour</div>
+                                    <div class="card-label">AI system tuning</div>
+                                </div>
+                            </div>
+                        `;
+                        break;
+                        
+                    case 'ai-maintenance':
+                        mainContent.innerHTML = `
+                            <div class="content-header">
+                                <h2>AI System Maintenance</h2>
+                                <p>Comprehensive AI infrastructure management - $175/hour</p>
+                            </div>
+                            <div class="dashboard-grid">
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-brain"></i>
+                                        <h3>AI Models</h3>
+                                    </div>
+                                    <div class="card-value">12 Active</div>
+                                    <div class="card-label">Trading, HR, Analysis</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-memory"></i>
+                                        <h3>System Load</h3>
+                                    </div>
+                                    <div class="card-value">67%</div>
+                                    <div class="card-label">Optimal performance range</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-sync-alt"></i>
+                                        <h3>Model Updates</h3>
+                                    </div>
+                                    <div class="card-value">Current</div>
+                                    <div class="card-label">Latest training data</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-tools"></i>
+                                        <h3>Maintenance Rate</h3>
+                                    </div>
+                                    <div class="card-value">$175/hour</div>
+                                    <div class="card-label">AI infrastructure management</div>
+                                </div>
+                            </div>
+                        `;
+                        break;
+                        
+                    case 'system-logs':
+                        mainContent.innerHTML = `
+                            <div class="content-header">
+                                <h2>System Logs</h2>
+                                <p>Complete platform activity monitoring - $175/hour</p>
+                            </div>
+                            <div class="dashboard-grid">
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-file-alt"></i>
+                                        <h3>Active Logs</h3>
+                                    </div>
+                                    <div class="card-value">Real-time</div>
+                                    <div class="card-label">All system events tracked</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-search"></i>
+                                        <h3>Log Analysis</h3>
+                                    </div>
+                                    <div class="card-value">Automated</div>
+                                    <div class="card-label">Pattern recognition active</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                        <h3>Alerts</h3>
+                                    </div>
+                                    <div class="card-value">0 Critical</div>
+                                    <div class="card-label">System running smoothly</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-clock"></i>
+                                        <h3>Analysis Rate</h3>
+                                    </div>
+                                    <div class="card-value">$175/hour</div>
+                                    <div class="card-label">Log monitoring service</div>
+                                </div>
+                            </div>
+                        `;
+                        break;
+                        
+                    case 'payroll-maintenance':
+                        mainContent.innerHTML = `
+                            <div class="content-header">
+                                <h2>Payroll System Maintenance</h2>
+                                <p>PayPal automated payroll management - $175/hour</p>
+                            </div>
+                            <div class="dashboard-grid">
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fab fa-paypal"></i>
+                                        <h3>PayPal Integration</h3>
+                                    </div>
+                                    <div class="card-value">Connected</div>
+                                    <div class="card-label">Mw907884@gmail.com</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        <h3>Payment Schedule</h3>
+                                    </div>
+                                    <div class="card-value">Weekly</div>
+                                    <div class="card-label">Fridays 9:00 AM EST</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-dollar-sign"></i>
+                                        <h3>Admin Payment</h3>
+                                    </div>
+                                    <div class="card-value">$5,000</div>
+                                    <div class="card-label">Weekly salary</div>
+                                </div>
+                                <div class="dashboard-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-wrench"></i>
+                                        <h3>Maintenance Rate</h3>
+                                    </div>
+                                    <div class="card-value">$175/hour</div>
+                                    <div class="card-label">Payroll system management</div>
+                                </div>
+                            </div>
+                        `;
+                        break;
+                        
+                    default:
+                        mainContent.innerHTML = `
+                            <div class="content-header">
+                                <h2>Coming Soon</h2>
+                                <p>This section is being developed</p>
+                            </div>
+                        `;
+                }
+            }
+        }
+
+        // Initialize the platform
+        document.addEventListener('DOMContentLoaded', () => {
+            new BlocksPlatform();
+        });
+        
+        console.log('Platform running successfully with live data');
+    </script>
+</body>
+</html>

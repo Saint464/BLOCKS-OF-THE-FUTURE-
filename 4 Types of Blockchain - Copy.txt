@@ -1,0 +1,218 @@
+4 Types of Blockchain
+Yashoda GandhiJan 16, 2022
+4 Types of Blockchain title banner
+Introduction
+ 
+
+Blockchain is a distributed, immutable ledger that simplifies the recording of transactions and asset management in a corporate network. 
+
+ 
+
+A tangible item, such as a house, car, cash, or land, can also be intangible (intellectual property, patents, copyrights, branding). On a blockchain network, virtually anything of value may be recorded and sold, lowering risk and cutting costs for all parties involved.
+
+ 
+
+Because it minimizes risk, eliminates fraud, and enables scalable transparency for a wide range of applications, blockchain is a particularly promising and revolutionary technology.
+
+ 
+
+For a better grasp of blockchain technology, a Google Doc is an excellent contrast. Instead of being replicated or moved, when we create a document and share it with a group of people, it gets disseminated. This creates a decentralized distribution network in which everyone has access to the document at the same time.
+
+ 
+
+No one is locked out while another party makes changes to the document, and all modifications are tracked in real-time, making them completely transparent. Obviously, Google Docs is a lot easier to use than blockchain, but this comparison provides a good overview.
+
+ 
+
+Importance of Blockchain
+ 
+
+At the core, you can find the blockchain's importance by going through its key features. These features make blockchain irresistible in diverse scenarios and mark itself as the best possible solution. Immutability allows businesses to assure that packages are not harmed while in transit.
+
+ 
+
+Public blockchain provides transparency due to its nature. Decentralized services are the backbone of our futuristic society. It is quite beneficial for a variety of purposes in current society, including conducting elections. Blockchain adds a layer of protection to the data stored on the network by employing encryption.
+
+ 
+
+ 
+
+Types of blockchain
+ 
+Private and public blockchains are the two main forms of blockchains. There are, however, certain variants, such as Consortium and Hybrid blockchains. Before we go into the specifics of the various sorts of blockchains, let's look at what they have in common.
+
+ 
+
+Every blockchain is made up of a group of nodes connected via a peer-to-peer (P2P) network. Every network node has a copy of the shared ledger, which is updated on a regular basis. Each node has the ability to validate transactions, send and receive messages, and produce blocks.
+
+ 
+
+Public blockchain
+ 
+
+On a public blockchain, there are no restrictions. Anyone with a computer and an internet connection may join the network and start sending transactions and confirming blocks. 
+
+ 
+
+Users who validate the blocks are usually rewarded in some way by such networks. In any event, this network uses Proof of Work or Proof of Stake consensus procedures to validate transactions. It is a "public" network in the truest sense. 
+
+ 
+
+You may download the protocol at any time in public blockchain architecture, and you won't require anyone's permission. Public blockchains represent the perfect paradigm that has made the IT sector so profitable.
+
+ 
+
+As a result, the ecosystem is fully decentralized; no single entity has authority over it. A private blockchain, on the other hand, may be edited and amended by the entity that owns it.
+
+ 
+
+Advantages 
+ 
+
+The data is not in the control of any single person.
+
+It has applications in the public sector, such as healthcare and education.
+
+It is immutable, which means that once an entry is made on the blockchain and validated by validators, it cannot be changed or removed. An entry is validated when a majority of people agree that it is correct.
+
+It is decentralized and runs on a peer-to-peer computer network.
+
+The blockchain's validators and participants remain anonymous.
+
+ 
+
+Disadvantages 
+ 
+
+Proof of Work consensus process is used by some public blockchains, such as Bitcoin, where members must solve a challenging mathematical problem to validate a transaction. It necessitates the use of numerous resources, which is a costly endeavor.
+
+In public blockchains, you don't have to verify your identity; instead, you simply commit your computing power to join the network.
+
+Speed: One of the most significant issues with various public blockchains, such as bitcoin, is that they handle just 4.6 transactions per second, whereas Visa processes 1700 transactions per second.
+
+ 
+
+Private blockchain
+ 
+
+However, there are several reasons why public blockchains may not be appropriate for businesses. For example, a company may not want every member on a blockchain to have full access to its data for privacy concerns. As a result, businesses may choose to put up their private blockchain.
+
+ 
+
+Permissioned blockchains are another term for private blockchains. Unlike public blockchains, which allow anybody to download the software, create a node, see the ledger, and interact with the blockchain, private blockchains are often managed and administered by a single company (the "trusted intermediary").
+
+ 
+
+Because the trusted intermediary is in charge of the blockchain's operation, it will be able to govern who has access to the private blockchain and the types of access privileges each participant has. 
+
+ 
+
+For example, some participants may be restricted to viewing (some or all of) the data on the ledger, whereas others may also have permission to submit new transactions for recording on the blockchain. (source)
+
+ 
+
+Advantages   
+ 
+
+Faster transactions are associated with the former type of control.
+
+Private Blockchain Networks are often modest at first, with only a few participants.
+
+In terms of management, the smaller size of a private Blockchain network compared to a public Blockchain network offers two key benefits: downtimes are decreased while uptimes are increased, and scaling is enabled.
+
+Because the technology vendor has control over the infrastructure, it can more easily follow and adopt those needs.
+
+ 
+
+Disadvantages 
+ 
+
+With the issue of scalability in mind, the practical usage of blockchain becomes a little difficult to conceive.
+
+The issue of storage arises because blockchain databases are retained permanently on all network nodes. Unfortunately, this demonstrates that blockchain is not completely safe.
+
+Regulations - Financial regulatory frameworks provide difficulty for blockchain deployment.
+
+ 
+
+(Also read: Role of IoT with blockchain)
+
+ 
+
+Consortium blockchain
+ 
+
+A consortium blockchain is a semi-decentralized kind in which a blockchain network is managed by many organizations. This is in contrast to a private blockchain, which is controlled by a single entity. 
+
+ 
+
+In this sort of blockchain, more than one organization can operate as a node, exchanging information or mining. Banks, government agencies, and other institutions frequently employ consortium blockchains.
+
+ 
+
+Consortium blockchains differ from public blockchains in that they are permissioned, meaning that not simply anybody with an internet connection can access them. The consensus procedure for a consortium blockchain is likely to differ from that of a public blockchain.
+
+ 
+
+Rather than allowing anybody to participate in the method, consensus participants are more likely to be selected. Consortium blockchains possess the security features that are inherent in public blockchains, whilst also allowing for a greater degree of control.
+
+ 
+
+Advantages 
+ 
+
+The consortium blockchain is completely monitored by a certain group but is secured from dominance.
+
+The element of privacy is much in consortium blockchain since the information from the checked blocks is unknown to the public view.
+
+Unlike a public blockchain, there are no fees for transactions in the consortium blockchain.
+
+Another difference that sets apart consortium blockchain from public blockchain is its feature of flexibility. But this does not happen in a consortium.
+
+ 
+
+Disadvantages 
+ 
+
+One of the major disadvantages of this blockchain is being centralized, which makes it prone to attack from malicious players.
+
+Whenever the number of participants becomes limited, it is estimated of one of them to be at fault.
+
+Since there is less flexibility found in an enterprise in comparison to SME, erecting a general network between enterprises is very sloth.
+
+ 
+
+Hybrid blockchain 
+ 
+
+The hybrid blockchain is best characterized as one that combines the greatest features of both private and public blockchain systems. In an ideal world, a hybrid blockchain would allow for both regulated and unrestricted access.
+
+ 
+
+The hybrid blockchain architecture is different from conventional blockchain designs in that it is not open to the public but yet delivers blockchain benefits like integrity, transparency, and security.
+
+ 
+
+Hybrid blockchain architecture is totally configurable, just like any other blockchain design. Members of the hybrid blockchain may decide who is allowed to join the network and which transactions are made public. This method combines the best of both worlds and ensures that a company can effectively collaborate with its stakeholders.
+
+ 
+
+Advantages 
+ 
+
+Works in A Closed Ecosystem: The number one advantage of hybrid blockchain is its ability to work in a closed ecosystem.
+
+Changes the Rules When Needed: Companies thrive on change. The good news about hybrid blockchain as they need to change rules.
+
+Protecting Privacy While Still Communicating with The Outer World: Even though private blockchain is best for privacy-related issues.
+
+Low Transaction Cost: Another added benefit of using hybrid blockchain is to have a low transaction cost.
+
+ 
+
+Disadvantages
+ 
+
+The fact that the hybrid blockchain lacks some of the transparency of other blockchains, and there is no prerogative for a business to undergo the extensive and challenging adoption process.
+
+Nonetheless, there are still effective use cases in real estate, retail, and various other markets that are beholden to steep regulations.

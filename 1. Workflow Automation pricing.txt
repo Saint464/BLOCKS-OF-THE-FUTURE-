@@ -1,0 +1,49 @@
+1. Workflow Automation
+Zapier: Free plan available with limited features; paid plans start at $19.99/month.
+
+IFTTT: Free plan available; Pro plans start at $2.50/month.
+
+2. Customer Relationship Management (CRM)
+HubSpot CRM: Free plan available; advanced features in paid plans start at $50/month.
+
+Zoho CRM: Free trial available; paid plans start at $14/month per user.
+
+3. Marketing Automation
+Mailchimp: Free plan available; Essentials plan starts at $13/month.
+
+Hootsuite: Free trial available; paid plans start at $99/month.
+
+4. Accounting and Finance
+QuickBooks Online: Plans start at $30/month.
+
+Xero: Plans start at $13/month.
+
+5. Project Management
+Asana: Free plan available; Premium plans start at $10.99/month per user.
+
+Trello: Free plan available; Standard plans start at $5/month per user.
+
+6. E-Commerce
+Shopify: Plans start at $39/month.
+
+WooCommerce: Free to use, but additional costs for hosting and plugins may apply.
+
+7. Communication and Collaboration
+Slack: Free plan available; Standard plans start at $7.25/month per user.
+
+Microsoft Teams: Free plan available; Microsoft 365 Business Basic starts at $6/month per user.
+
+8. HR and Payroll
+Gusto: Plans start at $40/month plus $6 per employee.
+
+BambooHR: Pricing available upon request, typically starting around $6/month per employee.
+
+9. Analytics and Reporting
+Google Analytics: Free for basic use; advanced features available in Google Analytics 360 (pricing upon request).
+
+Tableau: Plans start at $70/month per user.
+
+10. Inventory Management
+TradeGecko (now QuickBooks Commerce): Pricing starts at $39/month.
+
+Cin7: Pricing available upon request, typically starting at $299/month.
